@@ -2,12 +2,12 @@ package io.toolisticon.springboot.swagger
 
 import io.toolisticon.springboot.swagger.SwaggerProperties.Companion.PREFIX
 import lombok.Data
+import lombok.ToString
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
 
 
 @ConfigurationProperties(PREFIX)
-@Data
 class SwaggerProperties {
 
     companion object {
@@ -20,14 +20,36 @@ class SwaggerProperties {
 
     var name = "default"
 
+    @NestedConfigurationProperty
+    var api: ApiInfoProperty? = ApiInfoProperty()
 
 
     @NestedConfigurationProperty
     var groups: List<SwaggerGroup> = mutableListOf()
 
+    override fun toString(): String {
+        return "SwaggerProperties(enabled=$enabled, redirect=$redirect, name='$name', api=$api, groups=$groups)"
+    }
+
+
 }
 
-@Data
 class SwaggerGroup {
     lateinit var name : String
+}
+
+class ApiInfoProperty {
+    var title : String? = null
+    var description: String? = null
+    var version: String? = null
+    var termsOfServiceUrl: String? = null
+    var contact: String? = null
+    var license: String? = null
+    var licenseUrl: String? = null
+
+    override fun toString(): String {
+        return "ApiInfoProperty(title='$title', description='$description', version='$version', termsOfServiceUrl='$termsOfServiceUrl', contact='$contact', license='$license', licenseUrl='$licenseUrl')"
+    }
+
+
 }

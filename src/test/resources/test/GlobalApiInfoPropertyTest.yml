@@ -1,10 +1,4 @@
 swagger:
-  enabled: true
-  redirect: true
-
-  groups:
-    - name: foo
-
   api:
     title : "test spike"
     description: "the description"
