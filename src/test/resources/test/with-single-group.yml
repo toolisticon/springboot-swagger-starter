@@ -1,0 +1,6 @@
+swagger:
+  enabled: true
+  redirect: true
+
+  groups:
+    - name: foo
