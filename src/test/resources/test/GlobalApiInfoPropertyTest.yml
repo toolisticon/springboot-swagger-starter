@@ -1,5 +1,6 @@
 swagger:
-  api:
+  redirect: true
+  info:
     title : "test spike"
     description: "the description"
     version: "1.0.1"
