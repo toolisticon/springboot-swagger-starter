@@ -10,26 +10,7 @@ import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 
 @SpringBootApplication
-class SpikeApplication {
-
-  fun dockets(): List<Docket> {
-    return listOf(Docket(DocumentationType.SWAGGER_2)
-      .groupName("group1")
-      .apiInfo(ApiInfo.DEFAULT)
-      .select()
-      .apis(RequestHandlerSelectors.basePackage("io.toolisticon.springboot.swagger.spike.group1"))
-      .paths(PathSelectors.ant("/group1/**"))
-      .build(),
-      Docket(DocumentationType.SWAGGER_2)
-        .groupName("group2")
-        .apiInfo(ApiInfo.DEFAULT)
-        .select()
-        .apis(RequestHandlerSelectors.basePackage("io.toolisticon.springboot.swagger.spike.group2"))
-        .paths(PathSelectors.ant("/group2/**"))
-        .build())
-  }
-
-}
+class SpikeApplication
 
 
 fun main(vararg args: kotlin.String) {

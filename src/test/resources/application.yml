@@ -1,0 +1,25 @@
+swagger:
+  dockets:
+    group1:
+      basePackage: "io.toolisticon.springboot.swagger.spike.group1"
+      path: "/group1/**"
+    group2:
+      basePackage: "io.toolisticon.springboot.swagger.spike.group2"
+      path: "/group2/**"
+
+
+#var title: String = ApiInfo.DEFAULT.title
+#  var description: String = ApiInfo.DEFAULT.description
+#  var version: String? = ApiInfo.DEFAULT.version
+#  var termsOfServiceUrl: String? = ApiInfo.DEFAULT.termsOfServiceUrl
+#  //var contact: ContactProperty = ApiInfo.DEFAULT.contact
+#  var license: String = ApiInfo.DEFAULT.license
+#  var licenseUrl: String = ApiInfo.DEFAULT.licenseUrl
+#
+#  fun anotherDocket() =  Docket(DocumentationType.SWAGGER_2)
+#      .groupName("group2")
+#      .apiInfo(ApiInfo.DEFAULT)
+#      .select()
+#      .apis(RequestHandlerSelectors.basePackage("io.toolisticon.springboot.swagger.spike.group2"))
+#      .path(PathSelectors.ant("/group2/**"))
+#      .build()

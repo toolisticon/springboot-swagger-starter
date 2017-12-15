@@ -2,6 +2,11 @@ package io.toolisticon.springboot.swagger
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
+import springfox.documentation.builders.PathSelectors
+import springfox.documentation.builders.RequestHandlerSelectors
+import springfox.documentation.service.ApiInfo
+import springfox.documentation.spi.DocumentationType
+import springfox.documentation.spring.web.plugins.Docket
 
 @ConfigurationProperties("swagger")
 class SwaggerProperties() {
@@ -10,37 +15,36 @@ class SwaggerProperties() {
 
   var redirect = false
 
-  var name = "default"
-
   @NestedConfigurationProperty
-  var info: ApiInfoProperty = ApiInfoProperty()
-
-
-  @NestedConfigurationProperty
-  var groups: List<SwaggerGroup> = mutableListOf()
+  var dockets: Map<String, DocketProperty> = mutableMapOf()
 
   override fun toString(): String {
-    return "SwaggerProperties(enabled=$enabled, redirect=$redirect, name='$name', api=$info, groups=$groups)"
+    return "SwaggerProperties(enabled=$enabled, redirect=$redirect, dockets=$dockets)"
   }
 
 
 }
 
-class SwaggerGroup() {
-  lateinit var name: String
+class DocketProperty() {
+
+  //var groupName : String = SpringBootSwaggerAutoConfiguration.DUMMY
+  var apiInfo : ApiInfoProperty = ApiInfoProperty()
+  var basePackage: String = ""
+  var path: String = ""
+
 }
 
 class ApiInfoProperty() {
-  var title: String? = null
-  var description: String? = null
-  var version: String? = null
-  var termsOfServiceUrl: String? = null
-  var contact: String? = null
-  var license: String? = null
-  var licenseUrl: String? = null
+  var title: String = ApiInfo.DEFAULT.title
+  var description: String = ApiInfo.DEFAULT.description
+  var version: String? = ApiInfo.DEFAULT.version
+  var termsOfServiceUrl: String? = ApiInfo.DEFAULT.termsOfServiceUrl
+  //var contact: ContactProperty = ApiInfo.DEFAULT.contact
+  var license: String = ApiInfo.DEFAULT.license
+  var licenseUrl: String = ApiInfo.DEFAULT.licenseUrl
 
   override fun toString(): String {
-    return "ApiInfoProperty(title='$title', description='$description', version='$version', termsOfServiceUrl='$termsOfServiceUrl', contact='$contact', license='$license', licenseUrl='$licenseUrl')"
+    return "ApiInfoProperty(title='$title', description='$description', version='$version', termsOfServiceUrl='$termsOfServiceUrl', license='$license', licenseUrl='$licenseUrl')"
   }
 
 

@@ -1,2 +1,5 @@
+#
+# Auto Configuration
+#
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.toolisticon.springboot.swagger.SpringBootSwaggerAutoConfiguration
+  io.toolisticon.springboot.swagger.SpringBootSwaggerAutoConfiguration

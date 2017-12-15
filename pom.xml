@@ -18,7 +18,7 @@
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
     <toolisticon.github.repository>${project.artifactId}</toolisticon.github.repository>
 
-    <spring-boot.version>1.5.9.RELEASE</spring-boot.version>
+    <spring-boot.version>2.0.0.M7</spring-boot.version>
     <springfox.version>2.7.0</springfox.version>
     <kotlin-logging.version>1.4.6</kotlin-logging.version>
     <kotlin.version>1.2.10</kotlin.version>
@@ -76,7 +76,6 @@
       <version>${kotlin.version}</version>
     </dependency>
 
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
@@ -113,7 +112,7 @@
           <compilerPlugins>
             <plugin>spring</plugin>
           </compilerPlugins>
-          <jvmTarget>1.8</jvmTarget>
+          <jvmTarget>${java.version}</jvmTarget>
         </configuration>
         <executions>
           <execution>
@@ -141,4 +140,42 @@
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
