@@ -12,7 +12,6 @@ import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit4.SpringRunner
 import javax.annotation.PostConstruct
 
-
 @RunWith(SpringRunner::class)
 @ContextConfiguration(
   classes = arrayOf(SwaggerPropertiesTestHelper.TestConfig::class)
@@ -61,6 +60,5 @@ class GlobalApiInfoPropertyTest : SwaggerPropertiesTestHelper() {
   @Test
   fun name() {
     assertThat(properties.redirect).isTrue()
-
   }
 }

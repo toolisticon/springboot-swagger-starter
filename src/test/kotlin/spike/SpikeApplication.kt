@@ -12,7 +12,6 @@ import springfox.documentation.spring.web.plugins.Docket
 @SpringBootApplication
 class SpikeApplication
 
-
 fun main(vararg args: kotlin.String) {
   SpringApplication.run(SpikeApplication::class.java, *args)
 }

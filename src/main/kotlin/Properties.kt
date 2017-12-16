@@ -17,7 +17,6 @@ class SwaggerProperties() {
   override fun toString(): String {
     return "SwaggerProperties(enabled=$enabled, redirect=$redirect, dockets=$dockets)"
   }
-
 }
 
 class DocketProperty() {
