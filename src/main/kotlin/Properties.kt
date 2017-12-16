@@ -5,12 +5,10 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty
 import springfox.documentation.service.ApiInfo
 
 @ConfigurationProperties("swagger")
-class SwaggerProperties() {
+class SwaggerProperties {
 
   var enabled = false
-
   var redirect = false
-
   @NestedConfigurationProperty
   var dockets: Map<String, DocketProperty> = mutableMapOf()
 
@@ -19,17 +17,14 @@ class SwaggerProperties() {
   }
 }
 
-class DocketProperty() {
-
+class DocketProperty {
   @NestedConfigurationProperty
   var apiInfo : ApiInfoProperty = ApiInfoProperty()
-
   var basePackage: String = ""
   var path: String = ""
-
 }
 
-class ApiInfoProperty() {
+class ApiInfoProperty {
   var title: String = ApiInfo.DEFAULT.title
   var description: String = ApiInfo.DEFAULT.description
   var version: String? = ApiInfo.DEFAULT.version
@@ -41,6 +36,5 @@ class ApiInfoProperty() {
   override fun toString(): String {
     return "ApiInfoProperty(title='$title', description='$description', version='$version', termsOfServiceUrl='$termsOfServiceUrl', license='$license', licenseUrl='$licenseUrl')"
   }
-
 
 }

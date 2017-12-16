@@ -29,7 +29,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
     const val DUMMY = "DUMMY"
   }
 
-  // Dummy Object to allow injection of List<DocumentationPlugin>, removed in initialization
+  // Dummy Object to foster injection of List<DocumentationPlugin>, removed during initialization
   @Bean
   fun dummyDocket(): Docket = Docket(DocumentationType.SWAGGER_2).groupName(DUMMY).select().build()
 
@@ -37,6 +37,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   @Primary
   @Qualifier("documentationPluginRegistry")
   fun swaggerDocumentationPluginRegistry(beanDockets: MutableList<DocumentationPlugin>): PluginRegistry<DocumentationPlugin, DocumentationType> {
+    val plugins = beanDockets.filter { it.groupName != SpringBootSwaggerAutoConfiguration.DUMMY }.toMutableList()
     val propertyDockets = properties.dockets.map {
       Docket(DocumentationType.SWAGGER_2)
         .groupName(it.key)
@@ -45,9 +46,10 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
         .apis(RequestHandlerSelectors.basePackage(it.value.basePackage))
         .paths(PathSelectors.ant(it.value.path))
         .build()
-    }
+    }.filter { plugins.filter { p -> p.groupName == it.groupName }.isEmpty()  }
 
-    val plugins = beanDockets.filter { it.groupName != SpringBootSwaggerAutoConfiguration.DUMMY }.toMutableList()
+
+
     plugins.addAll(propertyDockets)
 
     logger.info { "Register swagger-dockets: ${plugins.map { it.groupName }}" }
