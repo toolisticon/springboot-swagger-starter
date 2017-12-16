@@ -2,11 +2,7 @@ package io.toolisticon.springboot.swagger
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
-import springfox.documentation.builders.PathSelectors
-import springfox.documentation.builders.RequestHandlerSelectors
 import springfox.documentation.service.ApiInfo
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spring.web.plugins.Docket
 
 @ConfigurationProperties("swagger")
 class SwaggerProperties() {
@@ -22,13 +18,13 @@ class SwaggerProperties() {
     return "SwaggerProperties(enabled=$enabled, redirect=$redirect, dockets=$dockets)"
   }
 
-
 }
 
 class DocketProperty() {
 
-  //var groupName : String = SpringBootSwaggerAutoConfiguration.DUMMY
+  @NestedConfigurationProperty
   var apiInfo : ApiInfoProperty = ApiInfoProperty()
+
   var basePackage: String = ""
   var path: String = ""
 
