@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Primary
 import org.springframework.core.annotation.AnnotationAwareOrderComparator
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import springfox.documentation.builders.PathSelectors
 import springfox.documentation.builders.RequestHandlerSelectors
 import springfox.documentation.service.ApiInfo
@@ -50,7 +52,14 @@ class SpringBootSwaggerAutoConfiguration(val properties : SwaggerProperties) {
     return SwaggerDocumentationPluginRegistry(properties, p!!)
   }
 
-
+  @ConditionalOnProperty(prefix = "swagger", name = arrayOf("redirect"), matchIfMissing = false)
+  @Bean
+  fun redirectSwaggerUI() = object : WebMvcConfigurerAdapter() {
+    override fun addViewControllers(registry: ViewControllerRegistry) {
+      registry.addRedirectViewController("/", "/swagger-ui.html")
+      super.addViewControllers(registry)
+    }
+  }
 }
 
 

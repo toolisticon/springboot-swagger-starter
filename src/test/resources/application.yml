@@ -1,4 +1,5 @@
 swagger:
+  redirect: false
   dockets:
     group1:
       basePackage: "io.toolisticon.springboot.swagger.spike.group1"
