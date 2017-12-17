@@ -41,7 +41,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
     val propertyDockets = properties.dockets.map {
       Docket(DocumentationType.SWAGGER_2)
         .groupName(it.key)
-        .apiInfo(ApiInfo.DEFAULT)
+        .apiInfo(it.value.apiInfo.get())
         .select()
         .apis(RequestHandlerSelectors.basePackage(it.value.basePackage))
         .paths(PathSelectors.ant(it.value.path))
