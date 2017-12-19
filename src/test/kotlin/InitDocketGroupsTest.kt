@@ -17,7 +17,7 @@ import springfox.documentation.spi.service.DocumentationPlugin
 import springfox.documentation.spring.web.plugins.Docket
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(classes = arrayOf(SpikeApplication::class))
+@SpringBootTest(classes = [SpikeApplication::class])
 class InitDocketGroupsTest {
 
   @Autowired
@@ -32,7 +32,7 @@ class InitDocketGroupsTest {
 }
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(classes = arrayOf(SpikeApplication::class, TestUniqueGroupTest.TestConfig::class))
+@SpringBootTest(classes = [SpikeApplication::class, TestUniqueGroupTest.TestConfig::class])
 class TestUniqueGroupTest {
 
   @Autowired

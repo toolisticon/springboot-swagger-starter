@@ -19,7 +19,7 @@ import springfox.documentation.spi.service.DocumentationPlugin
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
-@ConditionalOnProperty(prefix = "swagger", name = arrayOf("enabled"), havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "swagger", name = ["enabled"], havingValue = "true", matchIfMissing = true)
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties(SwaggerProperties::class)
@@ -60,7 +60,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   /**
    * Redirects from root to swagger-ui.html, but only if `swagger.enabled=true` is set.
    */
-  @ConditionalOnProperty(prefix = "swagger", name = arrayOf("redirect"), matchIfMissing = false)
+  @ConditionalOnProperty(prefix = "swagger", name = ["redirect"], matchIfMissing = false)
   @Bean
   fun redirectSwaggerUI() = object : WebMvcConfigurerAdapter() {
     override fun addViewControllers(registry: ViewControllerRegistry) {

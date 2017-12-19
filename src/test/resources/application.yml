@@ -10,3 +10,7 @@ swagger:
     group2:
       basePackage: "io.toolisticon.springboot.swagger.spike.group2"
       path: "/group2/**"
+
+spring:
+  main:
+    banner-mode: 'off'

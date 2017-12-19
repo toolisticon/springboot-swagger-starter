@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct
 
 @RunWith(SpringRunner::class)
 @ContextConfiguration(
-  classes = arrayOf(SwaggerPropertiesTestHelper.TestConfig::class)
+  classes = [SwaggerPropertiesTestHelper.TestConfig::class]
 )
 abstract class SwaggerPropertiesTestHelper {
 
@@ -54,7 +54,7 @@ class WithSingleGroupTest : SwaggerPropertiesTestHelper() {
 }
 
 
-@TestPropertySource(locations = arrayOf("classpath:test-toplevel-info.properties"))
+@TestPropertySource(locations = ["classpath:test-toplevel-info.properties"])
 class GlobalApiInfoPropertyTest : SwaggerPropertiesTestHelper() {
 
   @Test
