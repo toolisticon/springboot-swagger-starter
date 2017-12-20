@@ -46,52 +46,52 @@ All properties are prefixed with `swagger`. The following properties are availab
     <th>Property</th><th>Description</th><th>Required</th><th>Default</th><th>Example</th>
   </tr>
   <tr>
-    <td>swagger.enabled</td><td>Controls if the configuration with properties is enabled. Set to `false` if you want to disable this feature.</td><td>yes</td><td>true</td><td>false</td>
+    <td>`swagger.enabled`</td><td>Controls if the configuration with properties is enabled. Set to `false` if you want to disable this feature.</td><td>yes</td><td>true</td><td>false</td>
   </tr>
   <tr>
-    <td>swagger.redirect</td><td>Controls if the request to `/` should be redirected to `swagger-ui`.</td><td>no</td><td>false</td><td>true</td>
+    <td>`swagger.redirect</td><td>Controls if the request to `/` should be redirected to `swagger-ui`.</td><td>no</td><td>false</td><td>true</td>
   </tr>
   <tr>
-    <td>swagger.dockets</td><td>Defines a list of named Docket groups. Every key in this list is a name of the group configures with its elements.</td><td>no</td><td>empty</td><td>see below</td>
+    <td>`swagger.dockets</td><td>Defines a list of named Docket groups. Every key in this list is a name of the group configures with its elements.</td><td>no</td><td>empty</td><td>see below</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname]</td><td>Defines group `groupname`.</td><td>yes</td><td></td><td>myGroup</td>
+    <td>`swagger.dockets.[groupname]</td><td>Defines group `groupname`.</td><td>yes</td><td></td><td>myGroup</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].basePackage</td><td>Base package for the scan of for Swagger-annotated classes.</td><td>yes</td><td>empty</td><td>"io.toolisticon.springboot.rest.mypackage"</td>
+    <td>`...[groupname].basePackage`</td><td>Base package for the scan of for Swagger-annotated classes.</td><td>yes</td><td>empty</td><td>io.toolisticon.rest</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].path</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/mygroup/**"</td>
+    <td>`...[groupname].path`</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/mygroup/**"</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo</td><td>Definies API info for this group.</td><td>no</td><td></td><td>see below</td>
+    <td>`...[groupname].apiInfo`</td><td>Definies API info for this group.</td><td>no</td><td></td><td>see below</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.title</td><td>Definies title of the API for this group.</td><td>no</td><td></td><td>My API</td>
+    <td>`...[groupname].apiInfo.title`</td><td>Definies title of the API for this group.</td><td>no</td><td></td><td>My API</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.description</td><td>Definies description of the API for this group.</td><td>no</td><td></td><td>This is a nice API.</td>
+    <td>`...[groupname].apiInfo.description`</td><td>Definies description of the API for this group.</td><td>no</td><td></td><td>This is a nice API.</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.version</td><td>Definies version of the API for this group.</td><td>no</td><td></td><td>1</td>
+    <td>`...[groupname].apiInfo.version`</td><td>Definies version of the API for this group.</td><td>no</td><td></td><td>1</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.termsOfServiceUrl</td><td>Definies terms of service of the API for this group.</td><td>no</td><td></td><td>Use on your own risk.</td>
+    <td>`...[groupname].apiInfo.termsOfServiceUrl`</td><td>Definies terms of service of the API for this group.</td><td>no</td><td></td><td>Use on your own risk.</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.license</td><td>Definies license of the API for this group.</td><td>no</td><td></td><td>APACHE 2.0</td>
+    <td>`...[groupname].apiInfo.license`</td><td>Definies license of the API for this group.</td><td>no</td><td></td><td>APACHE 2.0</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.license</td><td>Definies license url of the API for this group.</td><td>no</td><td></td><td>http://my-license.com/license/</td>
+    <td>`...[groupname].apiInfo.license`</td><td>Definies license url of the API for this group.</td><td>no</td><td></td><td>http://my-license.com/license/</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.contact.name</td><td>Definies contact name of the API for this group.</td><td>no</td><td></td><td>Kermit The Frog</td>
+    <td>`...[groupname].apiInfo.contact.name`</td><td>Definies contact name of the API for this group.</td><td>no</td><td></td><td>Kermit The Frog</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.contact.email</td><td>Definies contact email of the API for this group.</td><td>no</td><td></td><td>kermit@muppetshow.biz</td>
+    <td>`...[groupname].apiInfo.contact.email`</td><td>Definies contact email of the API for this group.</td><td>no</td><td></td><td>kermit@muppetshow.biz</td>
   </tr>
   <tr>
-    <td>swagger.dockets.[groupname].apiInfo.contact.url</td><td>Definies contact url of the API for this group.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
+    <td>`...[groupname].apiInfo.contact.url`</td><td>Definies contact url of the API for this group.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
   </tr>
 </table>
 
