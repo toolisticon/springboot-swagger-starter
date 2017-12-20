@@ -22,7 +22,15 @@
     <dokka.version>0.9.13</dokka.version>
     <kotlin-logging.version>1.4.6</kotlin-logging.version>
     <kotlin.version>1.2.10</kotlin.version>
+    <project.github.coordinates>toolisticon/springboot-swagger-starter</project.github.coordinates>
   </properties>  
+  
+  <scm>
+    <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
+    <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
+    <url>git@github.com:${project.github.coordinates}.git</url>
+    <tag>HEAD</tag>
+  </scm>
   
   <dependencyManagement>
     <dependencies>
@@ -216,9 +224,16 @@
       </plugins>
     </pluginManagement>
   </build>
+  
   <profiles>
     <profile>
-      <id>documentation</id>
+      <id>source-and-javadoc</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>      
       <build>
         <plugins>
           <plugin>
