@@ -1,5 +1,5 @@
 sudo: false
-language: java
+language: groovy
 jdk:
   - oraclejdk8
 install: true
