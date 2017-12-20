@@ -24,17 +24,26 @@ Put the following dependency to your Maven POM file:
 In your `application.yml` add the following block:
 
     swagger:
+      enabled: true
       redirect: true
       dockets:
-        view:
-          basePackage: "io.toolisticon.springboot.swagger.spike.group1"
-          path: "/group1/**"
+        muppetShow:
+          basePackage: "biz.muppetshow.rest"
+          path: "/show/**"
           apiInfo:
-            title: The view API
-            description: use this to get a hello from group1
+            title: The Muppet Show API
+            description: Use this to get a greeting from Kermit.
+            version: 0.1
+            termsOfService: use on your own risk
+            lisense: APACHE-2.0
+            licenseUrl: LICENSE.txt
+            contact:
+              name: Kermit The Frog
+              email: kermit@muppetshow.biz
+              url: http://muppetshow.biz
         admin:
-          basePackage: "io.toolisticon.springboot.swagger.spike.group2"
-          path: "/group2/**"
+          basePackage: "biz.muppetshow.admin"
+          path: "/admin/**"
     
 ## Features 
 
@@ -58,10 +67,10 @@ All properties are prefixed with `swagger`. The following properties are availab
     <td>swagger.dockets.[groupname]</td><td>Defines group `groupname`.</td><td>yes</td><td></td><td>myGroup</td>
   </tr>
   <tr>
-    <td>...[groupname].basePackage</td><td>Base package for the scan of for Swagger-annotated classes.</td><td>yes</td><td>empty</td><td>io.toolisticon.rest</td>
+    <td>...[groupname].basePackage</td><td>Base package for the scan of for Swagger-annotated classes.</td><td>yes</td><td>empty</td><td>biz.muppetshow.rest</td>
   </tr>
   <tr>
-    <td>...[groupname].path</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/mygroup/**"</td>
+    <td>...[groupname].path</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/show/**"</td>
   </tr>
   <tr>
     <td>...[groupname].apiInfo</td><td>Definies API info for this group.</td><td>no</td><td></td><td>see below</td>
@@ -82,7 +91,7 @@ All properties are prefixed with `swagger`. The following properties are availab
     <td>...[groupname].apiInfo.license</td><td>Definies license of the API for this group.</td><td>no</td><td></td><td>APACHE 2.0</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.license</td><td>Definies license url of the API for this group.</td><td>no</td><td></td><td>http://my-license.com/license/</td>
+    <td>...[groupname].apiInfo.licenseUrl</td><td>Definies license url of the API for this group.</td><td>no</td><td></td><td>http://my.com/license/</td>
   </tr>
   <tr>
     <td>...[groupname].apiInfo.contact.name</td><td>Definies contact name of the API for this group.</td><td>no</td><td></td><td>Kermit The Frog</td>
