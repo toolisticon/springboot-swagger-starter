@@ -19,6 +19,7 @@
 
     <spring-boot.version>1.5.9.RELEASE</spring-boot.version>
     <springfox.version>2.7.0</springfox.version>
+    <dokka.version>0.9.13</dokka.version>
     <kotlin-logging.version>1.4.6</kotlin-logging.version>
     <kotlin.version>1.2.10</kotlin.version>
   </properties>
@@ -163,8 +164,98 @@
             </goals>
           </execution>
         </executions>
-      </plugin>     
+      </plugin>
     </plugins>
-  </build>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.jetbrains.dokka</groupId>
+          <artifactId>dokka-maven-plugin</artifactId>
+          <version>${dokka.version}</version>
+          <executions>
+            <execution>
+              <phase>test</phase>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>javadocJar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+              <configuration>
+                <sources>
+                  <source>${project.basedir}/src/main/kotlin</source>
+                </sources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.0.1</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>package</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+              <configuration>
+                <attach>true</attach>
+                <forceCreation>true</forceCreation>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>      
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+    <profile>
+      <id>documentation</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jetbrains.dokka</groupId>
+            <artifactId>dokka-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>    
+    </profile>
+  </profiles>
+
+  <pluginRepositories>
+      <!-- required for Dokka (Kotlin javadoc) -->
+      <pluginRepository>
+          <id>jcenter</id>
+          <name>JCenter</name>
+          <url>https://jcenter.bintray.com/</url>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+      </pluginRepository>
+  </pluginRepositories>  
+  
 </project>
