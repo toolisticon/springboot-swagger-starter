@@ -22,13 +22,13 @@
     <springfox.version>2.7.0</springfox.version>
     <kotlin-logging.version>1.4.6</kotlin-logging.version>
     <kotlin.version>1.2.10</kotlin.version>
-    
+    <project.github.coordinates>toolisticon/springboot-swagger-starter</project.github.coordinates>
   </properties>
   
   <scm>
-    <connection>scm:git:git@github.com:${toolisticon.github.coordinates}.git</connection>
-    <developerConnection>scm:git:git@github.com:${toolisticon.github.coordinates}.git</developerConnection>
-    <url>git@github.com:${toolisticon.github.coordinates}.git</url>
+    <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
+    <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
+    <url>git@github.com:${project.github.coordinates}.git</url>
     <tag>HEAD</tag>
   </scm>
   
