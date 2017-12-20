@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/toolisticon/springboot-swagger-starter.svg?branch=master)](https://travis-ci.org/toolisticon/springboot-swagger-starter) 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter)
+[![codecov](https://codecov.io/gh/toolisticon/springboot-swagger-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/toolisticon/springboot-swagger-starter)
 
 Springboot Swagger Starter allows to create SpringFox Dockets using Springboot.
 
