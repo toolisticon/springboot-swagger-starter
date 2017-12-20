@@ -11,7 +11,7 @@
 
   <groupId>io.toolisticon.springboot</groupId>
   <artifactId>springboot-swagger-starter</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
 
   <properties>
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
@@ -28,7 +28,7 @@
     <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
     <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
     <url>git@github.com:${project.github.coordinates}.git</url>
-    <tag>springboot-swagger-starter-0.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
   
   
