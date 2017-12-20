@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>io.toolisticon.maven</groupId>
     <artifactId>maven-oss-parent</artifactId>
     <version>0.6.3</version>
-    <relativePath/>
+    <relativePath />
   </parent>
 
   <groupId>io.toolisticon.springboot</groupId>
   <artifactId>springboot-swagger-starter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
 
   <properties>
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
@@ -29,7 +28,7 @@
     <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
     <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
     <url>git@github.com:${project.github.coordinates}.git</url>
-    <tag>HEAD</tag>
+    <tag>springboot-swagger-starter-0.0.1</tag>
   </scm>
   
   
