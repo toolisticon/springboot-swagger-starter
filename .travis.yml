@@ -1,5 +1,5 @@
 sudo: false
-language: java
+language: groovy
 jdk:
   - oraclejdk8
 install: true
@@ -9,5 +9,5 @@ cache:
   directories:
     - $HOME/.m2
 script: ./mvnw clean verify
-after_success: 
-- bash <(curl -s https://codecov.io/bash) -t repository-upload-token
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
