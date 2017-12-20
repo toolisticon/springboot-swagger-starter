@@ -73,34 +73,34 @@ All properties are prefixed with `swagger`. The following properties are availab
     <td>...[groupname].path</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/show/**"</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo</td><td>Definies API info for this group.</td><td>no</td><td></td><td>see below</td>
+    <td>...[groupname].apiInfo</td><td>API info for this group.</td><td>no</td><td></td><td>see below</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.title</td><td>Definies title of the API for this group.</td><td>no</td><td></td><td>My API</td>
+    <td>...[groupname].apiInfo.title</td><td>Title of the API for this group.</td><td>no</td><td></td><td>My API</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.description</td><td>Definies description of the API for this group.</td><td>no</td><td></td><td>This is a nice API.</td>
+    <td>...[groupname].apiInfo.description</td><td>Description of the API for this group.</td><td>no</td><td></td><td>This is a nice API.</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.version</td><td>Definies version of the API for this group.</td><td>no</td><td></td><td>1</td>
+    <td>...[groupname].apiInfo.version</td><td>Version of the API for this group.</td><td>no</td><td></td><td>1</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.termsOfServiceUrl</td><td>Definies terms of service of the API for this group.</td><td>no</td><td></td><td>Use on your own risk.</td>
+    <td>...[groupname].apiInfo.termsOfServiceUrl</td><td>Terms of service of the API for this group.</td><td>no</td><td></td><td>Use on your own risk.</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.license</td><td>Definies license of the API for this group.</td><td>no</td><td></td><td>APACHE 2.0</td>
+    <td>...[groupname].apiInfo.license</td><td>License of the API for this group.</td><td>no</td><td></td><td>APACHE 2.0</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.licenseUrl</td><td>Definies license url of the API for this group.</td><td>no</td><td></td><td>http://my.com/license/</td>
+    <td>...[groupname].apiInfo.licenseUrl</td><td>License url of the API for this group.</td><td>no</td><td></td><td>http://my.com/license/</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.contact.name</td><td>Definies contact name of the API for this group.</td><td>no</td><td></td><td>Kermit The Frog</td>
+    <td>...[groupname].apiInfo.contact.name</td><td>Contact name of the API for this group.</td><td>no</td><td></td><td>Kermit The Frog</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.contact.email</td><td>Definies contact email of the API for this group.</td><td>no</td><td></td><td>kermit@muppetshow.biz</td>
+    <td>...[groupname].apiInfo.contact.email</td><td>Contact email of the API for this group.</td><td>no</td><td></td><td>kermit@muppetshow.biz</td>
   </tr>
   <tr>
-    <td>...[groupname].apiInfo.contact.url</td><td>Definies contact url of the API for this group.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
+    <td>...[groupname].apiInfo.contact.url</td><td>Contact url of the API for this group.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
   </tr>
 </table>
 
