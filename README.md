@@ -4,7 +4,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter)
 [![codecov](https://codecov.io/gh/toolisticon/springboot-swagger-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/toolisticon/springboot-swagger-starter)
 
-Springboot Swagger Starter allows to create SpringFox Dockets using Springboot.
+Springboot Swagger Starter allows to create SpringFox Dockets using Springboot. We make use of SpringFox library, but ban the boilerplate code needed for creation of a Docklet. So instead of providing a `@Bean` that returns your Docket, you can just specify it using your properties or YAML file.
 
 ## Installation and requirements
 
