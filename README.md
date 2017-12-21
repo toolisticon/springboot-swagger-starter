@@ -95,6 +95,9 @@ All properties are prefixed with `swagger`. Beyond specification of the ApiInfo 
     <td>swagger.dockets</td><td>Defines a list of named Docket groups. Every key in this list is a name of the group configures with its elements.</td><td>no</td><td>empty</td><td>see below</td>
   </tr>
   <tr>
+    <td>swagger.dockets.[groupname]</td><td>Defines a Docket group `groupname`.</td><td>no</td><td>empty</td><td>see below</td>
+  </tr>  
+  <tr>
     <td>...[groupname].apiInfo</td><td>API info for this group.</td><td>no</td><td></td><td>see below</td>
   </tr>
   <tr>
