@@ -27,12 +27,23 @@ In your `application.yml` add the following block:
     swagger:
       enabled: true
       redirect: true
+      apiInfo:
+        title: The Muppet Show API
+        description: Use this to get a greeting from Muppet Show.
+        version: 1.0
+        termsOfService: use on your own risk
+        lisense: APACHE-2.0
+        licenseUrl: LICENSE.txt
+        contact:
+          name: Miss Piggy
+          email: piggy@muppetshow.biz
+          url: http://muppetshow.biz      
       dockets:
         muppetShow:
           basePackage: "biz.muppetshow.rest"
           path: "/show/**"
           apiInfo:
-            title: The Muppet Show API
+            title: The Special Muppet Show API
             description: Use this to get a greeting from Kermit.
             version: 0.1
             termsOfService: use on your own risk
