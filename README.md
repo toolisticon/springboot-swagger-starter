@@ -18,7 +18,7 @@ Put the following dependency to your Maven POM file:
     <dependency>
       <groupId>io.toolisticon.springboot</groupId>
       <artifactId>springboot-swagger-starter</artifactId>
-      <version>0.0.2</version>
+      <version>0.0.3</version>
     </dependency>
     
     
@@ -49,7 +49,7 @@ In your `application.yml` add the following block:
 ## Features 
 
 The library supports configuration of SpringFox Dockets our of `application.yml` or `application.properties`. 
-All properties are prefixed with `swagger`. The following properties are available:
+All properties are prefixed with `swagger`. Beyond specification of the ApiInfo for every Docket, you can specify a global ApiInfo which will be used for all Dockets, if not overwritten on the Docket level. The following properties are available:
 
 <table>
   <tr>
@@ -62,16 +62,37 @@ All properties are prefixed with `swagger`. The following properties are availab
     <td>swagger.redirect</td><td>Controls if the request to `/` should be redirected to `swagger-ui`.</td><td>no</td><td>false</td><td>true</td>
   </tr>
   <tr>
+    <td>swagger.apiInfo</td><td>API info for all groups.</td><td>no</td><td></td><td>see below</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.title</td><td>Title of the API for all groups.</td><td>no</td><td></td><td>My API</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.description</td><td>Description of the API for all groups.</td><td>no</td><td></td><td>This is a nice API.</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.version</td><td>Version of the API for all groups.</td><td>no</td><td></td><td>1</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.termsOfServiceUrl</td><td>Terms of service of the API for all groups.</td><td>no</td><td></td><td>Use on your own risk.</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.license</td><td>License of the API for all groups.</td><td>no</td><td></td><td>APACHE 2.0</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.licenseUrl</td><td>License url of the API for all groups.</td><td>no</td><td></td><td>http://my.com/license/</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.contact.name</td><td>Contact name of the API for all groups.</td><td>no</td><td></td><td>Kermit The Frog</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.contact.email</td><td>Contact email of the API for all groups.</td><td>no</td><td></td><td>kermit@muppetshow.biz</td>
+  </tr>
+  <tr>
+    <td>swagger.apiInfo.contact.url</td><td>Contact url of the API for all groups.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
+  </tr>
+  <tr>
     <td>swagger.dockets</td><td>Defines a list of named Docket groups. Every key in this list is a name of the group configures with its elements.</td><td>no</td><td>empty</td><td>see below</td>
-  </tr>
-  <tr>
-    <td>swagger.dockets.[groupname]</td><td>Defines group `groupname`.</td><td>yes</td><td></td><td>myGroup</td>
-  </tr>
-  <tr>
-    <td>...[groupname].basePackage</td><td>Base package for the scan of for Swagger-annotated classes.</td><td>yes</td><td>empty</td><td>biz.muppetshow.rest</td>
-  </tr>
-  <tr>
-    <td>...[groupname].path</td><td>Ant path matcher limiting the group operation by URL.</td><td>no</td><td>/**</td><td>"/show/**"</td>
   </tr>
   <tr>
     <td>...[groupname].apiInfo</td><td>API info for this group.</td><td>no</td><td></td><td>see below</td>
@@ -104,7 +125,6 @@ All properties are prefixed with `swagger`. The following properties are availab
     <td>...[groupname].apiInfo.contact.url</td><td>Contact url of the API for this group.</td><td>no</td><td></td><td>http://muppetshow.biz</td>
   </tr>
 </table>
-
 
 ## Building
 
