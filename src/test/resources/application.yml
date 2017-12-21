@@ -1,5 +1,11 @@
 swagger:
   redirect: true
+  apiInfo:
+    version: 1.0.0
+    contact:
+      name: BPM Craftsmen
+      url: https://holisticon.de
+      email: jobs@holisticon.de
   dockets:
     group1:
       basePackage: "io.toolisticon.springboot.swagger.spike.group1"
