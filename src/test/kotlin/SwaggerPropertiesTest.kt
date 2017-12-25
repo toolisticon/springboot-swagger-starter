@@ -1,10 +1,11 @@
 package io.toolisticon.springboot.swagger
 
-import mu.KLogging
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.test.context.ContextConfiguration
@@ -21,14 +22,16 @@ abstract class SwaggerPropertiesTestHelper {
   @EnableConfigurationProperties(SwaggerProperties::class)
   class TestConfig
 
-  companion object : KLogging()
+  companion object {
+    val logger : Logger = LoggerFactory.getLogger(SwaggerPropertiesTestHelper::class.java)
+  }
 
   @Autowired
   protected lateinit var properties: SwaggerProperties
 
   @PostConstruct
   fun log() {
-    logger.info { "properties=${properties}" }
+    logger.info("properties=${properties}")
   }
 
 }

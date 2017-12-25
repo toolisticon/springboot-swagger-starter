@@ -1,6 +1,7 @@
 package io.toolisticon.springboot.swagger
 
-import mu.KLogging
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import springfox.documentation.builders.PathSelectors
 import springfox.documentation.builders.RequestHandlerSelectors
-import springfox.documentation.service.ApiInfo
 import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spi.service.DocumentationPlugin
 import springfox.documentation.spring.web.plugins.Docket
@@ -25,7 +25,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 @EnableConfigurationProperties(SwaggerProperties::class)
 class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
 
-  companion object : KLogging() {
+  companion object {
+    val logger: Logger = LoggerFactory.getLogger(SwaggerProperties::class.java)
     const val DUMMY = "DUMMY"
   }
 
@@ -46,13 +47,11 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
         .apis(RequestHandlerSelectors.basePackage(it.value.basePackage))
         .paths(PathSelectors.ant(it.value.path))
         .build()
-    }.filter { plugins.filter { p -> p.groupName == it.groupName }.isEmpty()  }
-
-
+    }.filter { plugins.filter { p -> p.groupName == it.groupName }.isEmpty() }
 
     plugins.addAll(propertyDockets)
 
-    logger.info { "Register swagger-dockets: ${plugins.map { it.groupName }}" }
+    logger.info("Register swagger-dockets: {}", plugins.map { it.groupName } )
 
     return OrderAwarePluginRegistry.create(plugins)
   }

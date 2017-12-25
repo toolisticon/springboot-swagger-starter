@@ -23,15 +23,15 @@
     <kotlin-logging.version>1.4.6</kotlin-logging.version>
     <kotlin.version>1.2.10</kotlin.version>
     <project.github.coordinates>toolisticon/springboot-swagger-starter</project.github.coordinates>
-  </properties>  
-  
+  </properties>
+
   <scm>
     <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
     <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
     <url>git@github.com:${project.github.coordinates}.git</url>
     <tag>HEAD</tag>
   </scm>
-  
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -63,21 +63,11 @@
     </dependency>
 
     <dependency>
-      <groupId>io.github.microutils</groupId>
-      <artifactId>kotlin-logging</artifactId>
-      <version>${kotlin-logging.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
+
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-reflect</artifactId>
@@ -88,11 +78,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
     </dependency>
 
     <dependency>
@@ -166,7 +151,7 @@
         </executions>
       </plugin>
     </plugins>
-    
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -220,11 +205,11 @@
               </configuration>
             </execution>
           </executions>
-        </plugin>      
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
-  
+
   <profiles>
     <profile>
       <id>source-and-javadoc</id>
@@ -233,7 +218,7 @@
           <name>performRelease</name>
           <value>true</value>
         </property>
-      </activation>      
+      </activation>
       <build>
         <plugins>
           <plugin>
@@ -249,7 +234,7 @@
             <artifactId>maven-source-plugin</artifactId>
           </plugin>
         </plugins>
-      </build>    
+      </build>
     </profile>
   </profiles>
 
@@ -263,6 +248,6 @@
               <enabled>true</enabled>
           </releases>
       </pluginRepository>
-  </pluginRepositories>  
-  
+  </pluginRepositories>
+
 </project>

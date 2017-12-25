@@ -1,6 +1,7 @@
 package io.toolisticon.springboot.swagger
 
-import mu.KLogging
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
 import springfox.documentation.service.ApiInfo
@@ -13,7 +14,9 @@ import javax.annotation.PostConstruct
 @ConfigurationProperties("swagger")
 class SwaggerProperties {
 
-  companion object : KLogging()
+  companion object {
+    val logger : Logger = LoggerFactory.getLogger(SwaggerProperties::class.java)
+  }
 
   private fun replaceWithSuper(docketValue: String, globalValue: String, defaultValue: String): String =
     if (docketValue == defaultValue) globalValue else docketValue
