@@ -39,7 +39,8 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   @Qualifier("documentationPluginRegistry")
   fun swaggerDocumentationPluginRegistry(beanDockets: MutableList<DocumentationPlugin>): PluginRegistry<DocumentationPlugin, DocumentationType> {
     val plugins = beanDockets.filter { it.groupName != SpringBootSwaggerAutoConfiguration.DUMMY }.toMutableList()
-    val propertyDockets = properties.dockets.map {
+
+    properties.dockets.map {
       Docket(DocumentationType.SWAGGER_2)
         .groupName(it.key)
         .apiInfo(it.value.apiInfo.get())
@@ -47,11 +48,13 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
         .apis(RequestHandlerSelectors.basePackage(it.value.basePackage))
         .paths(PathSelectors.ant(it.value.path))
         .build()
-    }.filter { plugins.filter { p -> p.groupName == it.groupName }.isEmpty() }
+    }.filter {
+      plugins.filter { p -> p.groupName == it.groupName }.isEmpty()
+    }.map {
+      plugins.add(it)
+    }
 
-    plugins.addAll(propertyDockets)
-
-    logger.info("Register swagger-dockets: {}", plugins.map { it.groupName } )
+    logger.info("Register swagger-dockets: {}", plugins.map { it.groupName })
 
     return OrderAwarePluginRegistry.create(plugins)
   }
