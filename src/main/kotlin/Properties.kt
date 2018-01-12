@@ -2,14 +2,10 @@ package io.toolisticon.springboot.swagger
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
-import springfox.documentation.builders.PathSelectors
-import springfox.documentation.builders.RequestHandlerSelectors
 import springfox.documentation.service.ApiInfo
 import springfox.documentation.service.ApiInfo.DEFAULT
 import springfox.documentation.service.ApiInfo.DEFAULT_CONTACT
 import springfox.documentation.service.Contact
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spring.web.plugins.Docket
 import java.util.function.Supplier
 import javax.annotation.PostConstruct
 

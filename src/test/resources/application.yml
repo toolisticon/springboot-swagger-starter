@@ -20,3 +20,6 @@ swagger:
 spring:
   main:
     banner-mode: 'off'
+
+server:
+  port: 11111
