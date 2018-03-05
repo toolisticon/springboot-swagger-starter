@@ -5,7 +5,7 @@
   <parent>
     <groupId>io.toolisticon.maven</groupId>
     <artifactId>maven-oss-parent</artifactId>
-    <version>0.6.3</version>
+    <version>0.7.0</version>
     <relativePath />
   </parent>
 
