@@ -11,7 +11,7 @@
 
   <groupId>io.toolisticon.springboot</groupId>
   <artifactId>springboot-swagger-starter</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
 
   <properties>
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
