@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Primary
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration
 import springfox.documentation.builders.PathSelectors
 import springfox.documentation.builders.RequestHandlerSelectors
@@ -65,9 +65,13 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   /**
    * Redirects from root to swagger-ui.html, but only if `swagger.enabled=true` is set.
    */
-  @ConditionalOnProperty(prefix = "swagger", name = ["redirect"], matchIfMissing = false)
+  @ConditionalOnProperty(
+    prefix = "swagger",
+    name = ["redirect"],
+    matchIfMissing = false
+  )
   @Bean
-  fun redirectSwaggerUI() = object : WebMvcConfigurerAdapter() {
+  fun redirectSwaggerUI() = object : WebMvcConfigurer {
     override fun addViewControllers(registry: ViewControllerRegistry) {
       registry.addRedirectViewController("/", "/swagger-ui.html")
       super.addViewControllers(registry)
