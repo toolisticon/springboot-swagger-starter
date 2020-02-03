@@ -4,7 +4,7 @@
 
   <groupId>io.toolisticon.springboot</groupId>
   <artifactId>springboot-swagger-starter</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
