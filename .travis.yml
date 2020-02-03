@@ -1,7 +1,7 @@
 sudo: false
 language: java
 jdk:
-  - oraclejdk8
+  - openjdk8
 install: true
 before_install:
   - chmod +x mvnw
@@ -11,3 +11,4 @@ cache:
 script: ./mvnw clean verify
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
