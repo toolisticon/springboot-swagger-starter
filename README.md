@@ -150,13 +150,11 @@ Run to build:
 
 ## Releasing
 
-We are using gitflow to name and manage brnaches. Pushes on `master` branch create
-releases in OSS nexus. Run:
+We are using gitflow to name and manage branches. Pushes on `master` branch creates release in OSS nexus. 
+If you are planing to create one and are allowed to push to the `master` branch, please run to create a new version:
 
     ./mvnw gitflow:release-start
     ./mvnw gitflow:release-finish
-
-to create a new version.
 
 ## Contributing
 
