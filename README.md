@@ -1,6 +1,6 @@
 # Springboot Swagger Starter
 
-[![Build Status](https://travis-ci.org/toolisticon/springboot-swagger-starter.svg?branch=master)](https://travis-ci.org/toolisticon/springboot-swagger-starter) 
+![Build Status](https://github.com/toolisticon/springboot-swagger-starter/workflows/default/badge.svg) 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter)
 [![codecov](https://codecov.io/gh/toolisticon/springboot-swagger-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/toolisticon/springboot-swagger-starter)
 
