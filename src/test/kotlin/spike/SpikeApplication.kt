@@ -1,11 +1,10 @@
 package io.toolisticon.springboot.swagger.spike
 
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class SpikeApplication
 
-fun main(vararg args: kotlin.String) {
-  SpringApplication.run(SpikeApplication::class.java, *args)
-}
+fun main(vararg args: String) = runApplication<SpikeApplication>(*args).let { Unit }
+
