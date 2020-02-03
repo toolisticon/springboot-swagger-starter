@@ -146,8 +146,17 @@ We use Kotlin and Maven in this project. Make sure you have a recent Apache Mave
 
 Run to build: 
 
-    mvn clean install  
+    ./mvnw clean install  
 
+## Releasing
+
+We are using gitflow to name and manage brnaches. Pushes on `master` branch create
+releases in OSS nexus. Run:
+
+    ./mvnw gitflow:release-start
+    ./mvnw gitflow:release-finish
+
+to create a new version.
 
 ## Contributing
 

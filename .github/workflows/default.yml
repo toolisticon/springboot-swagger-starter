@@ -34,14 +34,8 @@ jobs:
     - name: Build
       run: ./mvnw clean package
 
-    - name: Run integration tests
-      run: ./mvnw -Pitest
-
-    - name: Create reports
-      run: ./mvnw -DskipTests verify
-
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.0.2
       with:
         token: ${{secrets.CODECOV_TOKEN}}
-        file: example/example-kotlin/target/site/jacoco-aggregate/jacoco.xml
+        file: target/site/jacoco-aggregate/jacoco.xml
