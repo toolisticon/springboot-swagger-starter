@@ -1,6 +1,6 @@
 # Springboot Swagger Starter
 
-[![Build Status](https://travis-ci.org/toolisticon/springboot-swagger-starter.svg?branch=master)](https://travis-ci.org/toolisticon/springboot-swagger-starter) 
+![Build Status](https://github.com/toolisticon/springboot-swagger-starter/workflows/default/badge.svg) 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.toolisticon.springboot/springboot-swagger-starter)
 [![codecov](https://codecov.io/gh/toolisticon/springboot-swagger-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/toolisticon/springboot-swagger-starter)
 
@@ -146,8 +146,17 @@ We use Kotlin and Maven in this project. Make sure you have a recent Apache Mave
 
 Run to build: 
 
-    mvn clean install  
+    ./mvnw clean install  
 
+## Releasing
+
+We are using gitflow to name and manage brnaches. Pushes on `master` branch create
+releases in OSS nexus. Run:
+
+    ./mvnw gitflow:release-start
+    ./mvnw gitflow:release-finish
+
+to create a new version.
 
 ## Contributing
 
