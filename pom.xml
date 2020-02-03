@@ -34,28 +34,6 @@
 
   </properties>
 
-  <scm>
-    <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
-    <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
-    <url>git@github.com:${project.github.coordinates}.git</url>
-    <tag>HEAD</tag>
-  </scm>
-
-  <distributionManagement>
-    <site>
-      <id>README</id>
-      <url>https://github.com/toolisticon/springboot-swagger-starter</url>
-    </site>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -199,6 +177,7 @@
           <version>3.1.0</version>
         </plugin>
 
+        <!-- Javadoc -->
         <plugin>
           <groupId>org.jetbrains.dokka</groupId>
           <artifactId>dokka-maven-plugin</artifactId>
@@ -213,7 +192,6 @@
             </execution>
           </executions>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
@@ -382,8 +360,12 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
+            <groupId>org.jetbrains.dokka</groupId>
+            <artifactId>dokka-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -436,5 +418,50 @@
     </developer>
   </developers>
 
+  <organization>
+    <name>Holisticon AG</name>
+    <url>https://holisticon.de/</url>
+  </organization>
+
+  <name>${project.artifactId}</name>
+  <description>${project.artifactId}</description>
+  <licenses>
+    <license>
+      <name>Revised BSD License</name>
+      <url>
+        http://en.wikipedia.org/wiki/BSD_licenses#3-clause_license_.28.22Revised_BSD_License.22.2C_.22New_BSD_License.22.2C_or_.22Modified_BSD_License.22.29
+      </url>
+      <comments>see LICENSE.txt</comments>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <url>https://github.com/${project.github.coordinates}</url>
+
+  <scm>
+    <connection>scm:git:git@github.com:${project.github.coordinates}.git</connection>
+    <developerConnection>scm:git:git@github.com:${project.github.coordinates}.git</developerConnection>
+    <url>git@github.com:${project.github.coordinates}.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/${project.github.coordinates}/issues</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <site>
+      <id>README</id>
+      <url>https://github.com/${project.github.coordinates}</url>
+    </site>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
 </project>
