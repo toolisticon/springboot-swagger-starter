@@ -10,16 +10,20 @@ Springboot Swagger Starter allows to create SpringFox Dockets using Springboot. 
 
 Minimal tested versions:
 
-- SpringFox Swagger 2.7.0
-- Springboot 1.5.9.RELEASE
+- SpringFox Swagger 2.9.2
+- Springboot 2.2.4.RELEASE
 
 Put the following dependency to your Maven POM file:
 
     <dependency>
       <groupId>io.toolisticon.springboot</groupId>
       <artifactId>springboot-swagger-starter</artifactId>
-      <version>0.0.3</version>
+      <version>0.1.0</version>
     </dependency>
+
+resp.:
+
+    implementation("io.toolisticon.springboot:springboot-swagger-starter:0.1.0")
     
     
 In your `application.yml` add the following block:
