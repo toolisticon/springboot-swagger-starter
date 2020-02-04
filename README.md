@@ -164,7 +164,7 @@ If you are planing to create one and are allowed to push to the `master` branch,
 
 ### Issues
 
-[https://github.com/toolisticon/springboot-swagger-starter](https://github.com/toolisticon/springboot-swagger-starter)
+<https://github.com/toolisticon/springboot-swagger-starter/issues>
 
 ### Contributors
 
