@@ -318,6 +318,7 @@
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
           <version>1.6.8</version>
+          <extensions>true</extensions>
           <configuration>
             <autoReleaseAfterClose>true</autoReleaseAfterClose>
             <serverId>ossrh</serverId>
@@ -363,18 +364,6 @@
       </activation>
       <build>
         <plugins>
-          <plugin>
-            <groupId>org.jetbrains.dokka</groupId>
-            <artifactId>dokka-maven-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
