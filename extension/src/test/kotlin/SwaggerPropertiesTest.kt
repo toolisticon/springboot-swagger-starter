@@ -1,26 +1,35 @@
 package io.toolisticon.springboot.swagger
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.boot.env.YamlPropertySourceLoader
+import org.springframework.boot.test.context.TestConfiguration
+import org.springframework.context.annotation.Configuration
+import org.springframework.core.env.CompositePropertySource
+import org.springframework.core.env.PropertySource
+import org.springframework.core.io.support.EncodedResource
+import org.springframework.core.io.support.PropertySourceFactory
+import org.springframework.core.io.support.ResourcePropertySource
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit4.SpringRunner
+import java.io.IOException
+import java.util.function.Consumer
 import javax.annotation.PostConstruct
 
 @RunWith(SpringRunner::class)
 @ContextConfiguration(
-  classes = [SwaggerPropertiesTestHelper.TestConfig::class]
+  classes = [SwaggerPropertiesTestHelper.MyTestConfiguration::class]
 )
 abstract class SwaggerPropertiesTestHelper {
 
   @EnableConfigurationProperties(SwaggerProperties::class)
-  class TestConfig
+  class MyTestConfiguration
 
   companion object {
     val logger: Logger = LoggerFactory.getLogger(SwaggerPropertiesTestHelper::class.java)
@@ -48,13 +57,33 @@ class SwaggerPropertiesTest : SwaggerPropertiesTestHelper() {
   }
 }
 
-@Ignore
-@TestPropertySource()
+@ContextConfiguration(
+  classes = [WithSingleGroupTest.MyYamlConfiguration::class]
+)
 class WithSingleGroupTest : SwaggerPropertiesTestHelper() {
+
+  @Configuration
+  @EnableConfigurationProperties(SwaggerProperties::class)
+  @org.springframework.context.annotation.PropertySource(
+    value = ["classpath:/test/WithSingleGroupTest.yml"],
+    factory = YamlPropertySourceFactory::class
+  )
+  class MyYamlConfiguration
+
   @Test
   fun `has one group in list`() {
     assertThat(properties.dockets).hasSize(1)
   }
+
+  class YamlPropertySourceFactory : PropertySourceFactory {
+    @Throws(IOException::class)
+    override fun createPropertySource(name: String?, resource: EncodedResource): PropertySource<*> {
+      val compositePropertySource = CompositePropertySource(name ?: ResourcePropertySource(resource).name)
+      YamlPropertySourceLoader().load(name, resource.resource).forEach(Consumer { propertySource: PropertySource<*> -> compositePropertySource.addPropertySource(propertySource) })
+      return compositePropertySource
+    }
+  }
+
 }
 
 
