@@ -5,9 +5,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Configurable
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.plugin.core.PluginRegistry
@@ -21,7 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket
 class InitDocketGroupsTest {
 
   @Autowired
-  lateinit var dockets : PluginRegistry<DocumentationPlugin, DocumentationType>
+  lateinit var dockets: PluginRegistry<DocumentationPlugin, DocumentationType>
 
   @Test
   fun `find both group 1+2 dockets`() {
@@ -36,7 +34,7 @@ class InitDocketGroupsTest {
 class TestUniqueGroupTest {
 
   @Autowired
-  lateinit var dockets : PluginRegistry<DocumentationPlugin, DocumentationType>
+  lateinit var dockets: PluginRegistry<DocumentationPlugin, DocumentationType>
 
   @Test
   fun `find groups 1+2+3 dockets`() {
@@ -49,10 +47,10 @@ class TestUniqueGroupTest {
   class TestConfig {
 
     @Bean
-    fun group2() : Docket = Docket(DocumentationType.SWAGGER_2).groupName("group2").select().build()
+    fun group2(): Docket = Docket(DocumentationType.SWAGGER_2).groupName("group2").select().build()
 
     @Bean
-    fun group3() : Docket = Docket(DocumentationType.SWAGGER_2).groupName("group3").select().build()
+    fun group3(): Docket = Docket(DocumentationType.SWAGGER_2).groupName("group3").select().build()
 
   }
 }

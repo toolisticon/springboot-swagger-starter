@@ -1,12 +1,7 @@
 swagger:
-  enabled: true
   redirect: true
-
-  groups:
-    - name: foo
-
   info:
-    title : "test spike"
+    title : "GLOBAL TITLE"
     description: "the description"
     version: "1.0.1"
     termsOfServiceUrl: "http://termsofservice.dummy"

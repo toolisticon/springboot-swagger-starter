@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "swagger.redirect",
+      "type": "java.lang.String",
+      "description": "Description for swagger.redirect."
+  }
+] }

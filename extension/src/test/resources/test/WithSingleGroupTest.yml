@@ -1,0 +1,5 @@
+swagger:
+  dockets:
+    first:
+      basePackage: "some"
+

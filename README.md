@@ -10,16 +10,20 @@ Springboot Swagger Starter allows to create SpringFox Dockets using Springboot. 
 
 Minimal tested versions:
 
-- SpringFox Swagger 2.7.0
-- Springboot 1.5.9.RELEASE
+- Spring-Boot 2.3.1.RELEASE
+- SpringFox Swagger 2.10.4
 
 Put the following dependency to your Maven POM file:
 
     <dependency>
       <groupId>io.toolisticon.springboot</groupId>
       <artifactId>springboot-swagger-starter</artifactId>
-      <version>0.0.3</version>
+      <version>0.2.0</version>
     </dependency>
+
+resp.:
+
+    implementation("io.toolisticon.springboot:springboot-swagger-starter:0.2.0")
     
     
 In your `application.yml` add the following block:
@@ -150,19 +154,23 @@ Run to build:
 
 ## Releasing
 
-We are using gitflow to name and manage brnaches. Pushes on `master` branch create
-releases in OSS nexus. Run:
+We are using gitflow to name and manage branches. Pushes on `master` branch creates release in OSS nexus. 
+If you are planing to create one and are allowed to push to the `master` branch, please run to create a new version:
 
     ./mvnw gitflow:release-start
     ./mvnw gitflow:release-finish
 
-to create a new version.
+## Changelog
+
+* 0.2.0 upgrade to springboot 2.3.1.RELEASE and JDK 11
+* 0.1.0 initial release
+
 
 ## Contributing
 
 ### Issues
 
-[https://github.com/toolisticon/springboot-swagger-starter](https://github.com/toolisticon/springboot-swagger-starter)
+<https://github.com/toolisticon/springboot-swagger-starter/issues>
 
 ### Contributors
 

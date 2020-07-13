@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.toolisticon.springboot</groupId>
-  <artifactId>springboot-swagger-starter</artifactId>
-  <version>0.1.0</version>
+  <artifactId>springboot-swagger-starter-root</artifactId>
+  <version>0.2.0</version>
+  <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,22 +19,25 @@
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
     <toolisticon.github.repository>springboot-swagger-starter</toolisticon.github.repository>
 
-    <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
-    <springfox.version>2.9.2</springfox.version>
-    <kotlin-logging.version>1.7.7</kotlin-logging.version>
-    <kotlin.version>1.3.61</kotlin.version>
+    <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+    <springfox.version>2.10.4</springfox.version>
+    <javax.validation.version>2.0.1.Final</javax.validation.version>
+
+    <kotlin.version>1.3.72</kotlin.version>
     <project.github.coordinates>toolisticon/springboot-swagger-starter</project.github.coordinates>
 
     <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-    <!-- GPG key -->
-    <gpg.keyname>86F8C6FC</gpg.keyname>
     <!-- disable javadoc linter for JDK8 to not fail on incomplete javadoc -->
     <additionalparam>-Xdoclint:none</additionalparam>
+    <jacoco.skip>true</jacoco.skip>
 
     <pattern.class.itest>**/*ITest.*</pattern.class.itest>
     <pattern.package.itest>**/itest/**/*.*</pattern.package.itest>
-
   </properties>
+
+  <modules>
+    <module>extension</module>
+  </modules>
 
   <dependencyManagement>
     <dependencies>
@@ -47,69 +52,21 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-swagger-ui</artifactId>
-      <version>${springfox.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-swagger2</artifactId>
-      <version>${springfox.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-bean-validators</artifactId>
-      <version>${springfox.version}</version>
-    </dependency>
-
+    <!-- We use kotlin - the libs are default -->
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-reflect</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-configuration-processor</artifactId>
-      <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-kotlin</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-validation</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <build>
+    <defaultGoal>clean install</defaultGoal>
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     <plugins>
@@ -124,6 +81,22 @@
           <jvmTarget>${java.version}</jvmTarget>
         </configuration>
         <executions>
+          <execution>
+            <id>kapt</id>
+            <goals>
+              <goal>kapt</goal>
+            </goals>
+            <configuration>
+              <annotationProcessorPaths>
+                <annotationProcessorPath>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-configuration-processor</artifactId>
+                  <version>${spring-boot.version}</version>
+                </annotationProcessorPath>
+              </annotationProcessorPaths>
+            </configuration>
+          </execution>
+
           <execution>
             <id>compile</id>
             <phase>compile</phase>
@@ -147,6 +120,8 @@
           </dependency>
         </dependencies>
       </plugin>
+
+      <!-- Coverage -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -170,8 +145,8 @@
 
     <pluginManagement>
       <plugins>
+        <!-- Clean -->
         <plugin>
-          <!-- cleaning -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
@@ -195,7 +170,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.2.0</version>
           <executions>
             <execution>
               <phase>generate-sources</phase>
@@ -224,7 +199,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.2.1</version>
           <executions>
             <execution>
               <id>attach-sources</id>
@@ -243,7 +218,7 @@
         <!-- Unit Tests -->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
+          <version>3.0.0-M4</version>
           <configuration>
             <useSystemClassLoader>false</useSystemClassLoader>
             <shutdown>kill</shutdown>
@@ -347,6 +322,19 @@
   </build>
 
   <profiles>
+
+    <profile>
+      <id>examples</id>
+      <activation>
+        <property>
+          <name>!skipExamples</name>
+        </property>
+      </activation>
+      <modules>
+        <module>examples</module>
+      </modules>
+    </profile>
+
     <!--
       Profile creating all artifacts: JARs, POMs, Sources, JavaDoc and all signatures.
     -->
@@ -384,16 +372,30 @@
     </profile>
   </profiles>
 
+  <repositories>
+    <!-- required for springfox -->
+    <repository>
+      <id>jcenter</id>
+      <name>jcenter</name>
+      <url>https://jcenter.bintray.com/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
   <pluginRepositories>
-      <!-- required for Dokka (Kotlin javadoc) -->
-      <pluginRepository>
-          <id>jcenter</id>
-          <name>JCenter</name>
-          <url>https://jcenter.bintray.com/</url>
-          <releases>
-              <enabled>true</enabled>
-          </releases>
-      </pluginRepository>
+    <!-- required for Dokka (Kotlin javadoc) -->
+    <pluginRepository>
+      <id>jcenter</id>
+      <name>JCenter</name>
+      <url>https://jcenter.bintray.com/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
   </pluginRepositories>
 
 
