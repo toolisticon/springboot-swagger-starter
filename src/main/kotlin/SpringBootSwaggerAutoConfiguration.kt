@@ -19,11 +19,11 @@ import springfox.documentation.builders.RequestHandlerSelectors
 import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spi.service.DocumentationPlugin
 import springfox.documentation.spring.web.plugins.Docket
-import springfox.documentation.swagger2.annotations.EnableSwagger2
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc
 
 @ConditionalOnProperty(prefix = "swagger", name = ["enabled"], havingValue = "true", matchIfMissing = true)
 @Configuration
-@EnableSwagger2
+@EnableSwagger2WebMvc
 @Import(BeanValidatorPluginsConfiguration::class)
 @EnableConfigurationProperties(SwaggerProperties::class)
 class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
@@ -41,7 +41,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   @Primary
   @Qualifier("documentationPluginRegistry")
   fun swaggerDocumentationPluginRegistry(beanDockets: MutableList<DocumentationPlugin>): PluginRegistry<DocumentationPlugin, DocumentationType> {
-    val plugins = beanDockets.filter { it.groupName != SpringBootSwaggerAutoConfiguration.DUMMY }.toMutableList()
+    val plugins = beanDockets.filter { it.groupName != DUMMY }.toMutableList()
 
     properties.dockets.map {
       Docket(DocumentationType.SWAGGER_2)
@@ -59,7 +59,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
 
     logger.info("Register swagger-dockets: {}", plugins.map { it.groupName })
 
-    return OrderAwarePluginRegistry.create(plugins)
+    return OrderAwarePluginRegistry.of(plugins)
   }
 
   /**
