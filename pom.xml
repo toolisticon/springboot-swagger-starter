@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.toolisticon.springboot</groupId>
@@ -17,10 +18,10 @@
     <toolisticon.github.organization>toolisticon</toolisticon.github.organization>
     <toolisticon.github.repository>springboot-swagger-starter</toolisticon.github.repository>
 
-    <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
-    <springfox.version>2.9.2</springfox.version>
-    <kotlin-logging.version>1.7.7</kotlin-logging.version>
-    <kotlin.version>1.3.61</kotlin.version>
+    <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+    <springfox.version>2.10.4</springfox.version>
+    <kotlin-logging.version>1.8.0.1</kotlin-logging.version>
+    <kotlin.version>1.3.72</kotlin.version>
     <project.github.coordinates>toolisticon/springboot-swagger-starter</project.github.coordinates>
 
     <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
@@ -68,13 +69,11 @@
       <artifactId>springfox-bean-validators</artifactId>
       <version>${springfox.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-reflect</artifactId>
@@ -171,8 +170,8 @@
 
     <pluginManagement>
       <plugins>
+        <!-- Clean -->
         <plugin>
-          <!-- cleaning -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
@@ -196,7 +195,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.2.0</version>
           <executions>
             <execution>
               <phase>generate-sources</phase>
@@ -225,7 +224,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.2.1</version>
           <executions>
             <execution>
               <id>attach-sources</id>
@@ -244,7 +243,7 @@
         <!-- Unit Tests -->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
+          <version>3.0.0-M4</version>
           <configuration>
             <useSystemClassLoader>false</useSystemClassLoader>
             <shutdown>kill</shutdown>
@@ -385,16 +384,24 @@
     </profile>
   </profiles>
 
+  <repositories>
+    <!-- required for springfox -->
+    <repository>
+      <id>jcenter-snapshots</id>
+      <name>jcenter</name>
+      <url>https://jcenter.bintray.com/</url>
+    </repository>
+  </repositories>
   <pluginRepositories>
-      <!-- required for Dokka (Kotlin javadoc) -->
-      <pluginRepository>
-          <id>jcenter</id>
-          <name>JCenter</name>
-          <url>https://jcenter.bintray.com/</url>
-          <releases>
-              <enabled>true</enabled>
-          </releases>
-      </pluginRepository>
+    <!-- required for Dokka (Kotlin javadoc) -->
+    <pluginRepository>
+      <id>jcenter</id>
+      <name>JCenter</name>
+      <url>https://jcenter.bintray.com/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
   </pluginRepositories>
 
 
