@@ -1,0 +1,27 @@
+swagger:
+  redirect: true
+  apiInfo:
+    version: 1.0.0
+    title: The default API
+    description: This is a default API.
+    contact:
+      name: BPM Craftsmen
+      url: https://holisticon.de
+      email: jobs@holisticon.de
+  dockets:
+    foo:
+      basePackage: "io.toolisticon.springboot.swagger.example.mvc.foo"
+      path: "/foo/**"
+      apiInfo:
+        title: The Foo API
+        description: use this to get a hello from foo
+    bar:
+      basePackage: "io.toolisticon.springboot.swagger.example.mvc.bar"
+      path: "/bar/**"
+
+spring:
+  main:
+    banner-mode: 'off'
+
+server:
+  port: 8080

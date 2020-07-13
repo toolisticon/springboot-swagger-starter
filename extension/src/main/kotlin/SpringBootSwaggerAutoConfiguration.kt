@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Import
 import org.springframework.context.annotation.Primary
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration
@@ -51,6 +52,7 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
         .apis(RequestHandlerSelectors.basePackage(it.value.basePackage))
         .paths(PathSelectors.ant(it.value.path))
         .build()
+        .pathMapping(properties.pathMapping)
     }.filter {
       plugins.filter { p -> p.groupName == it.groupName }.isEmpty()
     }.map {
@@ -72,7 +74,12 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
   )
   @Bean
   fun redirectSwaggerUI() = object : WebMvcConfigurer {
+    override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
+      logger.info("The swagger.redirect property is enabled and web jar support is activated.")
+      registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
     override fun addViewControllers(registry: ViewControllerRegistry) {
+      logger.info("The swagger.redirect property is enabled and http requests are redirected: [/] -> [/swagger-ui.html]")
       registry.addRedirectViewController("/", "/swagger-ui.html")
       super.addViewControllers(registry)
     }

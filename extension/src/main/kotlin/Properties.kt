@@ -13,10 +13,26 @@ import javax.annotation.PostConstruct
 @ConfigurationProperties("swagger")
 @ConstructorBinding
 data class SwaggerProperties(
+  /**
+   * Enable or disable docket registration. Defaults to true.
+   */
   val enabled: Boolean = true,
+  /**
+   * Enable redirect of "/" request to Swagger-UI. Defaults to false.
+   */
   val redirect: Boolean = false,
+  /**
+   * Servlet path mapping. Defaults to "/".
+   */
+  var pathMapping: String = "/",
+  /**
+   * API Info property.
+   */
   @NestedConfigurationProperty
   val apiInfo: ApiInfoProperty = ApiInfoProperty(),
+  /**
+   * Docket definition.
+   */
   @NestedConfigurationProperty
   var dockets: Map<String, DocketProperty> = mutableMapOf()
 ) {
@@ -49,9 +65,18 @@ data class SwaggerProperties(
 }
 
 data class DocketProperty(
+  /**
+   * Docket API info property, will overide the globally defined.
+   */
   @NestedConfigurationProperty
   var apiInfo: ApiInfoProperty = ApiInfoProperty(),
+  /**
+   * Package of the controllers in this docket.
+   */
   var basePackage: String = "",
+  /**
+   * URL path of this docket.
+   */
   var path: String = ""
 )
 
