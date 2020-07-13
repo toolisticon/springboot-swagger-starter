@@ -11,10 +11,6 @@
 
   <artifactId>springboot-swagger-starter-example-mvc</artifactId>
 
-  <properties>
-    <jacoco.skip>false</jacoco.skip>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
