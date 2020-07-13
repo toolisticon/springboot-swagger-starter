@@ -17,5 +17,6 @@
   </properties>
   <modules>
     <module>example-mvc</module>
+    <module>coverage-aggregate</module>
   </modules>
 </project>
