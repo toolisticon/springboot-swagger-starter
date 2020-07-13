@@ -17,9 +17,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 8
-        server-id: ossrh
-        server-username: ${{secrets.SONATYPE_USERNAME}}
-        server-password: ${{secrets.SONATYPE_PASSWORD}}
 
     - name: Cache .m2
       uses: actions/cache@v1
@@ -40,6 +37,14 @@ jobs:
       with:
         token: ${{secrets.CODECOV_TOKEN}}
         file: examples/coverage-aggregate/target/site/jacoco-aggregate/jacoco.xml
+
+    - name: Clean settings.xml
+      run: rm -rf ~/.m2/settings.xml
+
+    - name: Create settings.xml
+      uses: s4u/maven-settings-action@v1
+      with:
+        servers: '[{"id": "ossrh", "username": "${{secrets.SONATYPE_USERNAME}}", "password": "${{secrets.SONATYPE_PASSWORD}}"}]'
 
     - name: Import GPG Owner Trust
       run: echo ${{secrets.GPG_OWNERTRUST}} | base64 --decode | gpg --import-ownertrust
