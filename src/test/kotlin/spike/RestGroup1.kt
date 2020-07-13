@@ -1,10 +1,10 @@
 package io.toolisticon.springboot.swagger.spike.group1
 
 import io.swagger.annotations.*
-import org.hibernate.validator.constraints.NotBlank
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 import javax.validation.constraints.Min
+import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @RestController
@@ -43,7 +43,7 @@ data class DummyRequest(
 
 @ApiModel(
   value = "The Dummy Response",
-  description = "containes the multiplied string value."
+  description = "contains the multiplied string value."
 )
 data class DummyResponse(
   @ApiModelProperty(value = "the multiplied string", required = true)
