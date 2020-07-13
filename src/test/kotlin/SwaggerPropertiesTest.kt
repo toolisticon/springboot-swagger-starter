@@ -23,7 +23,7 @@ abstract class SwaggerPropertiesTestHelper {
   class TestConfig
 
   companion object {
-    val logger : Logger = LoggerFactory.getLogger(SwaggerPropertiesTestHelper::class.java)
+    val logger: Logger = LoggerFactory.getLogger(SwaggerPropertiesTestHelper::class.java)
   }
 
   @Autowired
@@ -36,13 +36,14 @@ abstract class SwaggerPropertiesTestHelper {
 
 }
 
-@Ignore
 class SwaggerPropertiesTest : SwaggerPropertiesTestHelper() {
 
   @Test
   fun `properties with defaults`() {
-    assertThat(properties.enabled).isFalse()
+    assertThat(properties.enabled).isTrue()
     assertThat(properties.redirect).isFalse()
+    assertThat(properties.dockets).isEmpty()
+    assertThat(properties.apiInfo).isNotNull
     assertThat(properties.dockets).isEmpty()
   }
 }
