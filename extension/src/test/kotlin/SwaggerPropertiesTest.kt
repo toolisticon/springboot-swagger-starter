@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.env.YamlPropertySourceLoader
-import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.env.CompositePropertySource
 import org.springframework.core.env.PropertySource
