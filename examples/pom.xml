@@ -14,6 +14,7 @@
 
   <properties>
     <jacoco.skip>true</jacoco.skip>
+    <dokka.skip>true</dokka.skip>
   </properties>
   <modules>
     <module>example-mvc</module>
