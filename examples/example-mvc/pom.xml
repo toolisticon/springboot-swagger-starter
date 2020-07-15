@@ -6,7 +6,7 @@
   <parent>
     <groupId>io.toolisticon.springboot</groupId>
     <artifactId>springboot-swagger-starter-examples-root</artifactId>
-    <version>0.3.0-SNAPSHOT</version>
+    <version>0.3.0</version>
   </parent>
 
   <artifactId>springboot-swagger-starter-example-mvc</artifactId>
