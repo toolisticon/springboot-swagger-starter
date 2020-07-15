@@ -2,7 +2,7 @@ swagger:
   redirect: true
   apiInfo:
     version: 1.0.0
-    title: The default API
+    title: The Advanced API
     description: This is a default API.
     contact:
       name: BPM Craftsmen
@@ -18,6 +18,9 @@ swagger:
     bar:
       basePackage: "io.toolisticon.springboot.swagger.example.mvc.bar"
       path: "/bar/**"
+      apiInfo:
+        title: The Bar API
+        description: use this to get a hello from bar
 
 spring:
   main:

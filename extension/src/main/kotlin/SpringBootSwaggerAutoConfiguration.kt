@@ -20,11 +20,11 @@ import springfox.documentation.builders.RequestHandlerSelectors
 import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spi.service.DocumentationPlugin
 import springfox.documentation.spring.web.plugins.Docket
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc
+import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 @ConditionalOnProperty(prefix = "swagger", name = ["enabled"], havingValue = "true", matchIfMissing = true)
 @Configuration
-@EnableSwagger2WebMvc
+@EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration::class)
 @EnableConfigurationProperties(SwaggerProperties::class)
 class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
@@ -78,9 +78,10 @@ class SpringBootSwaggerAutoConfiguration(val properties: SwaggerProperties) {
       logger.info("The swagger.redirect property is enabled and web jar support is activated.")
       registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+
     override fun addViewControllers(registry: ViewControllerRegistry) {
-      logger.info("The swagger.redirect property is enabled and http requests are redirected: [/] -> [/swagger-ui.html]")
-      registry.addRedirectViewController("/", "/swagger-ui.html")
+      logger.info("The swagger.redirect property is enabled and http requests are redirected: [/] -> [/swagger-ui/]")
+      registry.addRedirectViewController("/", "/swagger-ui/")
       super.addViewControllers(registry)
     }
   }
